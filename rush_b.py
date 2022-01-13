@@ -43,7 +43,7 @@ for pid, problem in enumerate(problems):
             continue
     except KeyError:
         pass
-    print("第%d题：\n" % pid)
+    print("[%s]第%d题：\n" % (problem['type'].replace("题", ""), pid))
     print(problem['problem'])
     if problem['type'] != "判断题":
         print(problem['A'])
@@ -51,11 +51,11 @@ for pid, problem in enumerate(problems):
         print(problem['C'])
         print(problem['D'])
     my_answer = input()
-    if my_answer == "save":
+    if my_answer.upper() == "SAVE":
         with open("process.json", "w") as f:
             f.write(json.dumps(problems, ensure_ascii=False))
         my_answer = input()
-    if my_answer == "quit":
+    if my_answer.upper() == "QUIT":
         with open("process.json", "w") as f:
             f.write(json.dumps(problems, ensure_ascii=False))
         exit(0)
