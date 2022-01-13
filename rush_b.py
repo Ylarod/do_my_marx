@@ -34,7 +34,7 @@ if os.path.exists("process.json"):
     with open("process.json", "r") as f:
         problems = json.loads(f.read())
 else:
-    with open(do_what, "r") as f:
+    with open(do_what, "r", encoding='UTF-8') as f:
         problems = json.loads(f.read())
 
 for pid, problem in enumerate(problems):
