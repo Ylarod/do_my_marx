@@ -4,4 +4,4 @@
 
 python3 rush_b.py
 
-![pic](assets/pic.png)
+![pic](https://github.com/Ylarod/do_my_marx/raw/main/assets/pic.png)
