@@ -25,6 +25,8 @@ problems = []
 bypass_count = 0
 # 只做错题？
 only_do_error = False
+# 错误阈值
+error_threshold = 1
 # 是否清屏
 do_clear = False
 
@@ -49,7 +51,7 @@ for pid, problem in enumerate(problems):
         continue
     if only_do_error:
         try:
-            if problem['error_times'] < 1:
+            if problem['error_times'] < error_threshold:
                 continue
         except KeyError:
             continue
