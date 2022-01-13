@@ -4,3 +4,4 @@
 
 python3 rush_b.py
 
+![pic](assets/pic.png)
