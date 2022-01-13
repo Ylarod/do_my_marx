@@ -1,5 +1,6 @@
 import os
 import json
+import signal
 
 
 def check_answer(a1: str, a2: str):
@@ -18,6 +19,16 @@ def check_answer(a1: str, a2: str):
 
 do_what = "马克思主义基本原理题库.json"
 problems = []
+
+
+def save_exit(signum, frame):
+    with open("process.json", "w") as f:
+        f.write(json.dumps(problems, ensure_ascii=False))
+    exit(0)
+
+
+signal.signal(signal.SIGINT, save_exit)
+signal.signal(signal.SIGTERM, save_exit)
 if os.path.exists("process.json"):
     with open("process.json", "r") as f:
         problems = json.loads(f.read())
