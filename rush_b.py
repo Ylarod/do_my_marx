@@ -21,6 +21,13 @@ def check_answer(a1: str, a2: str):
 do_what = "马克思主义基本原理题库.json"
 problems = []
 
+# 跳过个数
+bypass_count = 0
+# 只做错题？
+only_do_error = False
+# 是否清屏
+do_clear = False
+
 
 def save_exit(signum, frame):
     with open("process.json", "w") as f:
@@ -38,6 +45,14 @@ else:
         problems = json.loads(f.read())
 
 for pid, problem in enumerate(problems):
+    if pid < bypass_count:
+        continue
+    if only_do_error:
+        try:
+            if problem['error_times'] < 1:
+                continue
+        except KeyError:
+            continue
     try:
         if check_answer(problem['answer'], problem['my_answer']):
             continue
@@ -62,6 +77,9 @@ for pid, problem in enumerate(problems):
     problems[pid]['my_answer'] = my_answer
     if check_answer(problem['answer'], my_answer):
         print("\033[32m答对了！\033[0m\n\n\n")
+        if do_clear:
+            time.sleep(1)
+            os.system("clear")
     else:
         print("\033[31m答错了！\033[0m")
         print("正确答案：\033[32m" + problem['answer'] + "\033[0m")
@@ -72,3 +90,5 @@ for pid, problem in enumerate(problems):
             problems[pid]['error_times'] = 1
         input()
         print("\n\n\n")
+        if do_clear:
+            os.system("clear")
