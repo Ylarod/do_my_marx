@@ -1,6 +1,7 @@
 import os
 import json
 import signal
+import time
 
 
 def check_answer(a1: str, a2: str):
@@ -60,9 +61,10 @@ for pid, problem in enumerate(problems):
         exit(0)
     problems[pid]['my_answer'] = my_answer
     if check_answer(problem['answer'], my_answer):
-        print("答对了！\n\n\n")
+        print("\033[32m答对了！\033[0m\n\n\n")
     else:
-        print("答错了！")
-        print("正确答案：" + problem['answer'])
-        print("我的答案：" + my_answer)
+        print("\033[31m答错了！\033[0m")
+        print("正确答案：\033[32m" + problem['answer'] + "\033[0m")
+        print("我的答案：\033[31m" + my_answer + "\033[0m")
+        input()
         print("\n\n\n")
