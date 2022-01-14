@@ -9,9 +9,9 @@ def check_answer(a1: str, a2: str):
         return True
     if a1.upper() == a2.upper():
         return True
-    b1 = a1.upper().replace("1", "A").replace("2", "B").replace("2", "C").replace("4", "D")\
+    b1 = a1.upper().replace("1", "A").replace("2", "B").replace("3", "C").replace("4", "D")\
         .replace("对", "A").replace("错", "B").replace("T", "A").replace("F", "B")
-    b2 = a2.upper().replace("1", "A").replace("2", "B").replace("2", "C").replace("4", "D")\
+    b2 = a2.upper().replace("1", "A").replace("2", "B").replace("3", "C").replace("4", "D")\
         .replace("对", "A").replace("错", "B").replace("T", "A").replace("F", "B")
     if b1 == b2:
         return True
