@@ -1,8 +1,9 @@
 # do_my_marx
 
-题库json 使用parser转换 https://github.com/notnotype/xxt  的输出结果
+题库json 使用parser转换 https://github.com/notnotype/xxt  的输出结果 （输出的.text文件）
 
 复习建议：
+
 0. 读一遍题（可选）
 1. 从头到尾刷一遍题
 2. 做错题 `only_do_error = True`
