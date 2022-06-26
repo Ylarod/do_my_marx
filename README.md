@@ -2,6 +2,8 @@
 
 题库json 使用parser转换 https://github.com/notnotype/xxt  的输出结果 （输出的.text文件）
 
+Android APP版本: https://github.com/fornary4/IdeologicalExercise
+
 复习建议：
 
 0. 读一遍题（可选）
